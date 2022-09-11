@@ -26,7 +26,16 @@
 			post.user = post.content.split(": ")[0];
 			post.content = post.content.slice(post.content.indexOf(": ")+1);
 		}
-		
+		post.content = post.content.replaceAll("i", "e")
+		post.content = post.content.replaceAll("a", "e")
+		post.content = post.content.replaceAll("o", "e")
+		post.content = post.content.replaceAll("u", "e")
+		post.content = post.content.replaceAll("I", "E")
+		post.content = post.content.replaceAll("A", "E")
+		post.content = post.content.replaceAll("U", "E")
+		post.content = post.content.replaceAll("O", "E")
+		post.content = post.content.replaceAll("s", "k")
+		post.content = post.content.replaceAll("S", "K")
 		userName = post.user;
 
 		/**
