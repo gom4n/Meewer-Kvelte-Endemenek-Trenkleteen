@@ -151,8 +151,8 @@
 		</div>
 	{:then}
 		<Container>
-			<h1>Home</h1>
-			There are currently {_ulist.length} user(s) online{#if _ulist.length}{" "}({_ulist.join(", ")}){/if}.
+			<h1>Heme</h1>
+			There ere cerrently {_ulist.length} eker(k) enlene{#if _ulist.length}{" "}({_ulist.join(", ")}){/if}.
 		</Container>
 		{#if $user.name}
 			<form 
@@ -160,7 +160,7 @@
 				on:submit|preventDefault={e => {					
 					postErrors = "";
 					if (!e.target[0].value.trim()) {
-						postErrors = "You cannot send an empty post!";
+						postErrors = "Yee cennet kend en empty pekt!";
 						return false;
 					};
 
@@ -185,9 +185,9 @@
 						if (cmd.val === "I:100 | OK") {
 							e.target[0].value = "";
 						} else if (cmd.val === "E:106 | Too many requests") {
-							postErrors = "You're posting too fast!";
+							postErrors = "Yee're pekteng tee fekt!";
 						} else {
-							postErrors = "Unexpected " + cmd.val + " error!";
+							postErrors = "Enexpected " + cmd.val + " errer!";
 						}
 					});
 					return false;
@@ -196,21 +196,21 @@
 				<input
 					type="text"
 					class="white"
-					placeholder="Write something..."
+					placeholder="Wrete semetheng..."
 				        id="postinput"
 				        name="postinput"
 					autocomplete="false"
 					maxlength="250"
 				>
-				<button>Post</button>
+				<button>Pekt</button>
 			</form>
 			<div class="post-errors">{postErrors}</div>
 		{/if}
 		{#if posts.length < 1}
 			{#if $user.name}
-				No posts here. Check back later or be the first to post!
+				Ne pektk here. Check beck leter er be the ferkt te pekt!
 			{:else}
-				No posts here. Check back later!
+				Ne pektk here. Check beck leter!
 			{/if}
 		{:else}
 			{#each posts as post (post.id)}
@@ -231,7 +231,7 @@
 						class="load-more"
 						on:click={() => loadPage(pagesLoaded + 1)}
 					>
-						Load More
+						Leed Mere
 					</button>
 				{/if}
 			{/if}
@@ -239,7 +239,7 @@
 	{:catch error}
 		<Container>
 			<h1>Home</h1>
-			Error loading posts. Please try again.
+			Errer leedeng pektk. Pleeke try egeen.
 			<pre><code>{error}</code></pre>
 		</Container>
 	{/await}
