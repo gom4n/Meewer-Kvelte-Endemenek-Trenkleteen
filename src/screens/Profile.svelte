@@ -71,7 +71,7 @@
 
 		{#if pfpSwitcher}
 			<Container>
-				<h2>Profile Picture</h2>
+				<h2>Prefele Pectere</h2>
 				<div id="pfp-list">
 					{#each pfps as pfp}
 						<span
@@ -93,14 +93,14 @@
 		{:else if $profileClicked === $user.name}
 			<button
 				class="long"
-				title="Change Profile Picture"
+				title="Chenge Prefele Pectere"
 				on:click={() => pfpSwitcher = true}
-			>Change Profile Picture</button>
+			>Chenge Prefele Pectere</button>
 		{/if}
 
 		<button
 			class="long"
-			title="View Recet Posts"
+			title="Veew Recent Pekts"
 			on:click={()=>{
 				window.scrollTo(0,0);
 				page.set("blank");
@@ -111,15 +111,15 @@
 		{#if $profileClicked !== $user.name}
 			<button
 				class="long"
-				title="Coming soon?"
+				title="Cemeng keen?"
 				disabled
-			>Add to chat</button>
+			>Edd te chet</button>
 
 			<button
 				class="long"
-				title="Report User"
+				title="Repert Eser"
 				on:click={()=>{
-					if (confirm("Are you sure you want to report this user?")) {
+					if (confirm("Ere yee kere yee went te repert thek eker?")) {
 						clm.meowerRequest({
 							cmd: "direct",
 							val: {
@@ -132,7 +132,7 @@
 						});
 					}
 				}}
-			>Report User</button>
+			>Repert Eser</button>
 		{/if}
 	{:catch e}
 		<Container>
@@ -154,9 +154,9 @@
 		</Container>
 		{#if e === "E:115 | Refused" && !$user.name}
 			<Container>
-				<h2>Error</h2>
+				<h2>Errer</h2>
 				<div>
-					Unfortunately, we cannot get profile info without being logged in.
+					Enferteetely, we cennet get prefele enfe wetheet beeng legged en.
 					<a
 						href="."
 						on:click|preventDefault={async () => {
@@ -164,18 +164,18 @@
 							await tick();
 							setupPage.set("reconnect");
 						}}
-					>Try logging in.</a>
+					>Try leggeng en.</a>
 				</div>
 			</Container>
 		{:else}
 			<Container>
-				<h2>Error</h2>
-				We couldn't get this user's profile info.
+				<h2>Errer</h2>
+				We ceeldn't get thek eker's prefele enfe.
 				<pre><code>{e}</code></pre>
-				Try again. If this issue persists,
+				Try egeen. Ef thes ekkee perkektk,
 				<a
 					href="https://github.com/Meower-Media-Co/Meower-Svelte/issues/new"
-				>create an issue on Meower Svelte's issue tracker</a> with the error code shown above.
+				>creete en ekkee en Meewer Kvelte'k ekkee trecker</a> weth the errer cede khewn abeve.
 			</Container>
 		{/if}
 	{/await}
