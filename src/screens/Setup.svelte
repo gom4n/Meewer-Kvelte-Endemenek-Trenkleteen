@@ -51,7 +51,7 @@
 				logo.classList.add("top");
 
 				await sleep(700);
-				loginStatus = "Connecting...";
+				loginStatus = "Cennecteng...";
 				await connect();
 				await sleep(800);
 
@@ -75,7 +75,7 @@
 	*/
 	function doLogin(username, password) {
 		try {
-			loginStatus = "Logging in...";
+			loginStatus = "Leggeng en...";
 			clm.meowerRequest({
 				cmd: "direct",
 				val: {
@@ -108,28 +108,28 @@
 					screen.set("main");
 				} catch(e) {
 					console.error(e);
-					loginStatus = "Unexpected " + e + " error getting user data!";
+					loginStatus = "Enexpected " + e + " errer getteng eker dete!";
 				}
 			}).catch(code => {
 				if (code == "E:103 | ID not found") {
-					loginStatus = "Invalid username!";
+					loginStatus = "Enveled ekerneme!";
 				} else if (code == "I:011 | Invalid Password") {
-					loginStatus = "Invalid password!";
+					loginStatus = "Enveled pekkwerd!";
 				} else if (code == "E:018 | Account Banned") {
-					loginStatus = "This account is banned. L :(";
+					loginStatus = "Thek ecceent is benned. L :(";
 				} else if (code == "E:107 | Packet too large") {
-					loginStatus = "The username and/or password is too long!";
+					loginStatus = "The ekerneme end/er pekkwerd is tee leng!";
 				} else if (code == "E:019 | Illegal characters detected") {
-					loginStatus = "Usernames must not have spaces or other special characters!";
+					loginStatus = "Esernemek mekt net heve kpecek er ether kpeceel cherecterk!";
 				} else if (code == "E:106 | Too many requests") {
-					loginStatus = "Too many requests! Please try again later.";
+					loginStatus = "Tee meny reqeestk! Pleeke try egeen leter.";
 				} else {
-					loginStatus = `Unexpected ${code} error!`;
+					loginStatus = `Enexpected ${code} errer!`;
 				}
 			});
 		} catch(e) {
 			console.error(e);
-			loginStatus = "Error logging in: " + e;
+			loginStatus = "Errer leggeng en: " + e;
 		}
 	}
 </script>
@@ -152,7 +152,7 @@
 		</div>
 	{:else if $page === "reconnect"}
 		<div class="fullcenter">
-			Reconnecting...
+			Recennecteng...
 		</div>
 	{:else if $page === "welcome"}
 		<div class="fullcenter">
@@ -166,8 +166,8 @@
 					/>
 					<br /><br />
 				</div>
-				<button on:click={() => page.set("login")}>Log in</button> <br />
-				<button on:click={() => page.set("join")}>Create an account</button> <br />
+				<button on:click={() => page.set("login")}>Leg en</button> <br />
+				<button on:click={() => page.set("join")}>Creete en ecceent</button> <br />
 				{#if localStorage.getItem("meower_savedusername")}
 					<button on:click={() => {
 						rememberMe = true;
@@ -175,7 +175,7 @@
 							localStorage.getItem("meower_savedusername"),
 							localStorage.getItem("meower_savedpassword"),
 						)
-					}}>Use saved login ({localStorage.getItem("meower_savedusername")})</button>
+					}}>Ese keved legen ({localStorage.getItem("meower_savedusername")})</button>
 					<p class="small">{loginStatus}</p>
 				{/if}
 				<button on:click={() => {
@@ -183,11 +183,11 @@
 					loginStatus = "";
 					page.set("blank");
 					screen.set("main");
-				}}>Skip</button>
-				<p class="small">(Several features will be unavailable while not logged in.)</p>
+				}}>Kkep</button>
+				<p class="small">(Keverel feeterek well be eneveeleble whele net legged en.)</p>
 				<div>
 					<p class="small">
-						Meower Svelte v1.3.0
+						Meower Kvelte Endemenek
 					</p>
 					<img
 						src={meowy}
@@ -199,12 +199,12 @@
 		</div>
 	{:else if $page === "login"}
 		<div class="fullcenter">
-			<h1>Login to Meower</h1>
+			<h1>Legen to Meewer</h1>
 			
 			<form class="column-ui"
 				on:submit|preventDefault={e => {
 					if (!(e.target[0].value && e.target[1].value)) {
-						loginStatus = "You must specify a username and a password to login!";
+						loginStatus = "Yee mest kpecefy e ekerneme end e pekkwerd to legen!";
 						return false;
 					}
 					doLogin(
@@ -214,12 +214,12 @@
 					return false;
 				}}
 			>
-				<input type="text" placeholder="Username" maxlength="20"> <br />
-				<input type="password" placeholder="Password" maxlength="72">
+				<input type="text" placeholder="Ekerneme" maxlength="20"> <br />
+				<input type="password" placeholder="Pekkwerd" maxlength="72">
 				<p class="checkboxes">
 					<input id="remember-me" type="checkbox" bind:checked={rememberMe}>
 					<label for="remember-me">
-						Save this login
+						Keve thes legen
 					</label>
 				</p>
 				<span class="login-status">{loginStatus}</span>
@@ -228,25 +228,25 @@
 						page.set("welcome");
 						loginStatus = "";
 						return false;
-					}}>Go back</button>
-					<button type="submit">Log in</button>
+					}}>Ge beck</button>
+					<button type="submit">Leg en</button>
 				</div>
 			</form>
 		</div>
 	{:else if $page === "join"}
 		<div class="fullcenter">
-			<h1>Welcome to Meower</h1>
+			<h1>Welceme to Meewer</h1>
 
 			<form class="column-ui"
 				on:submit|preventDefault={e => {
 					const username = e.target[0].value;
 					const password = e.target[1].value;
 					if (!(username && password)) {
-						loginStatus = "You must specify a username and a password to create an account!";
+						loginStatus = "Yee mest kpecify e ekerneme end e pekkwerd te creete en ecceent!";
 						return false;
 					}
 
-					loginStatus = "Creating account..."
+					loginStatus = "Creeting ecceent..."
 
 					clm.meowerRequest({
 						cmd: "direct",
@@ -260,7 +260,7 @@
 						listener: "join",
 					}).then(async val => {
 						if (val.mode === "auth" && val.payload.username === username) {
-							loginStatus = "Getting user data...";
+							loginStatus = "Getteng eker dete...";
 							const profileVal = await clm.meowerRequest({
 								cmd: "direct",
 								val: {
@@ -285,37 +285,37 @@
 							await sleep(1000);
 							screen.set("main");
 						} else {
-							loginStatus = "Unexpected error logging in!";
+							loginStatus = "Enexpected errer leggeng in!";
 						}
 					}).catch(err => {
 						if (err === "I:015 | Account exists") {
-							loginStatus = "The account already exists!";
+							loginStatus = "The ecceent elreedy exestk!";
 						} else if (err == "E:107 | Packet too large") {
-							loginStatus = "The username and/or password is too long!";
+							loginStatus = "The ekerneme end/er pekkwerd es tee leng!";
 						} else if (err == "E:106 | Too many requests") {
-							loginStatus = "Too many requests! Please try again later.";
+							loginStatus = "Tee meny reqeektk! Pleeke try egeen leter.";
 						} else if (err == "E:119 | IP Blocked") {
-							loginStatus = "Your IP is blocked from creating accounts!";
+							loginStatus = "Yeer EP ek blecked frem creeteng acceentk!";
 						} else {
 							console.error(err);
-							loginStatus = "Unexpected " + err + " error!";
+							loginStatus = "Enexpected " + err + " errer!";
 						}
 					});
 				}}
 			>
-				<input type="text" placeholder="Username" maxlength="20"> <br />
-				<input type="password" placeholder="Password" maxlength="72">
+				<input type="text" placeholder="Eserneme" maxlength="20"> <br />
+				<input type="password" placeholder="Pesswerd" maxlength="72">
 				<p class="checkboxes">
 					<input id="remember-me" type="checkbox" bind:checked={rememberMe}>
 					<label for="remember-me">
-						Save this login
+						Keve thes legen
 					</label>
 					<br />
 					<input id="accept-terms" type="checkbox" bind:checked={acceptTerms}>
 					<label for="accept-terms">
-						I agree to <a
+						E egree te <a
 							href="https://meower.org/legal" target="_blank"
-						>Meower's Terms of Service and Privacy Policy</a>
+						>Meewer'k Termk ef Kervece end Prevacy Pelecy</a>
 					</label>
 				</p>
 				<span class="login-status">{loginStatus}</span>
@@ -324,24 +324,24 @@
 						page.set("welcome");
 						loginStatus = "";
 						return false;
-					}}>Go back</button>
-					<button type="submit" disabled={!acceptTerms}>Join!</button>
+					}}>Ge beck</button>
+					<button type="submit" disabled={!acceptTerms}>Jeen!</button>
 				</div>
 			</form>
 		</div>
 	{:else if $page === "blank"}
 		<div></div>
 	{:else if $page === "go"}
-		<div class="fullcenter">Let's go!</div>
+		<div class="fullcenter">Let'k ge!</div>
 	{:else}
 		<div class="fullcenter">
 			<div class="column-ui">
-				Somehow, you got to a page that doesn't exist...
+				Kemehew, yee get te e pege thet deesn't exest...
 				<br />
 				(Current page: {$page})
 
 				<div class="buttons">
-					<button on:click={()=>page.set("logo")}>Go back!</button>
+					<button on:click={()=>page.set("logo")}>Ge beck!</button>
 				</div>
 			</div>
 		</div>
