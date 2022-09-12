@@ -174,7 +174,7 @@
 			></PFP>
 		</button>	
 		<div class="creator">
-			<h2 class="creator">{userName2}</h2>
+			<h2 class="creator">{post.userName2}</h2>
 			<FormattedDate date={post.date}></FormattedDate>
 		</div>
 	</div>
