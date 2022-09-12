@@ -30,17 +30,7 @@
 
 		clm.updateProfile();
 	}
-	var userName = data._id
-	userName = userName.replaceAll("i", "e")
-	userName = userName.replaceAll("o", "e")
-	userName = userName.replaceAll("a", "e")
-	userName = userName.replaceAll("u", "e")
-	userName = userName.replaceAll("I", "E")
-	userName = userName.replaceAll("O", "E")
-	userName = userName.replaceAll("A", "E")
-	userName = userName.replaceAll("U", "E")
-	userName = userName.replaceAll("s", "k")
-	userName = userName.replaceAll("S", "K")
+	var userName = ""
 </script>
 
 <div class="OtherProfile">
@@ -57,6 +47,19 @@
 			<Loading />
 		</div>
 	{:then data}
+		<script>
+			username = $user.name
+			userName = userName.replaceAll("i", "e")
+			userName = userName.replaceAll("o", "e")
+			userName = userName.replaceAll("a", "e")
+			userName = userName.replaceAll("u", "e")
+			userName = userName.replaceAll("I", "E")
+			userName = userName.replaceAll("O", "E")
+			userName = userName.replaceAll("A", "E")
+			userName = userName.replaceAll("U", "E")
+			userName = userName.replaceAll("s", "k")
+			userName = userName.replaceAll("S", "K")
+		</script>
 		<Container>
 			<div class="profile-header">
 				<PFP
