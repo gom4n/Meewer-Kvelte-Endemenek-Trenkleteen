@@ -28,11 +28,6 @@ jobs:
           name: built-site
           path: dist/
       
-      - name: Checkout to build
-        uses: actions/checkout@v2
-        with:
-          ref: 'gh-pages'
-      
       - name: Clear out things
         run: rm -rf ./*
       
