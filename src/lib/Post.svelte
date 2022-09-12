@@ -37,6 +37,16 @@
 		post.content = post.content.replaceAll("s", "k")
 		post.content = post.content.replaceAll("S", "K")
 		userName = post.user;
+		userName = userName.replaceAll("i", "e")
+		userName = userName.replaceAll("a", "e")
+		userName = userName.replaceAll("o", "e")
+		userName = userName.replaceAll("u", "e")
+		userName = userName.replaceAll("I", "E")
+		userName = userName.replaceAll("A", "E")
+		userName = userName.replaceAll("U", "E")
+		userName = userName.replaceAll("O", "E")
+		userName = userName.replaceAll("S", "k")
+		userName = userName.replaceAll("S", "K")
 
 		/**
 		 * Fetch the user profile and store it in the cache.
@@ -44,19 +54,19 @@
 		const getProfile = () => {
 			let _profileData = $profileData;
 
-			if (userName === "Notification") {
+			if (userName === "Netefeceteen") {
 				_profileData[userName] = {
 					pfp_data: 101
 				}
 				profileData.set(_profileData);
 				return;
-			} else if (userName === "Announcement") {
+			} else if (userName === "Enneencement") {
 				_profileData[userName] = {
 					pfp_data: 102
 				}
 				profileData.set(_profileData);
 				return;
-			} else if (userName === "Server") {
+			} else if (userName === "Kerver") {
 				_profileData[userName] = {
 					pfp_data: 102
 				}
