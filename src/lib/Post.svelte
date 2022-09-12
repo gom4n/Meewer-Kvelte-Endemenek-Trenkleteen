@@ -22,7 +22,7 @@
 		if (!($user.name)) return;
 
 		var userName = ""
-		var username2 = ""
+		var userName2 = ""
 		if (post.user == "Discord" && post.content.includes(":")) {
 			post.user = post.content.split(": ")[0];
 			post.content = post.content.slice(post.content.indexOf(": ")+1);
@@ -39,16 +39,17 @@
 		post.content = post.content.replaceAll("S", "K")
 		userName = post.user;
 		userName2 = userName
-		userName2 = userName.replaceAll("i", "e")
-		userName2 = userName.replaceAll("a", "e")
-		userName2 = userName.replaceAll("o", "e")
-		userName2 = userName.replaceAll("u", "e")
-		userName2 = userName.replaceAll("I", "E")
-		userName2 = userName.replaceAll("A", "E")
-		userName2 = userName.replaceAll("U", "E")
-		userName2 = userName.replaceAll("O", "E")
-		userName2 = userName.replaceAll("S", "k")
-		userName2 = userName.replaceAll("S", "K")
+		userName2 = userName2.replaceAll("i", "e")
+		userName2 = userName2.replaceAll("a", "e")
+		userName2 = userName2.replaceAll("o", "e")
+		userName2 = userName2.replaceAll("u", "e")
+		userName2 = userName2.replaceAll("I", "E")
+		userName2 = userName2.replaceAll("A", "E")
+		userName2 = userName2.replaceAll("U", "E")
+		userName2 = userName2.replaceAll("O", "E")
+		userName2 = userName2.replaceAll("S", "k")
+		userName2 = userName2.replaceAll("S", "K")
+		post.userName2 = userName2
 
 		/**
 		 * Fetch the user profile and store it in the cache.
