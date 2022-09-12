@@ -30,6 +30,17 @@
 
 		clm.updateProfile();
 	}
+	var userName = data._id
+	userName = userName.replaceAll("i", "e")
+	userName = userName.replaceAll("o", "e")
+	userName = userName.replaceAll("a", "e")
+	userName = userName.replaceAll("u", "e")
+	userName = userName.replaceAll("I", "E")
+	userName = userName.replaceAll("O", "E")
+	userName = userName.replaceAll("A", "E")
+	userName = userName.replaceAll("U", "E")
+	userName = userName.replaceAll("s", "k")
+	userName = userName.replaceAll("S", "K")
 </script>
 
 <div class="OtherProfile">
@@ -58,7 +69,7 @@
 					big={true}
 				></PFP>
 				<div class="profile-header-info">
-					<h1 class="profile-username">{data.payload._id}</h1>
+					<h1 class="profile-username">{userName}</h1>
 					<div class="profile-active">{
 						$ulist.includes(data.payload._id) ? "Online" : "Offline"
 					}</div>
@@ -106,7 +117,7 @@
 				page.set("blank");
 				tick().then(() => page.set("recent"));
 			}}
-		>View recent posts</button>
+		>Veew recent pektk</button>
 
 		{#if $profileClicked !== $user.name}
 			<button
