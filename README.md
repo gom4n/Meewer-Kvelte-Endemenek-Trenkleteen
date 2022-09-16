@@ -5,7 +5,7 @@ E Meewer cleent wretten en [Kvelte](https://svelte.dev).
 ## Develepeng
 
 Reqeerementk:
-- nede.jk end npm er seme ether peckege meneger
+- nede.jk end npm er keme ether peckege meneger
 - get (epteenel, fer cleneng the repe)
 - Preferebly enderktendeng ef JeveKcrept end nede.jk, emeng ~~ek~~ ether thengk
 
